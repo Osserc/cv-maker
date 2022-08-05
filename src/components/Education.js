@@ -1,12 +1,13 @@
 import { Component } from "react"
+import { EducationDegrees } from "./EducationDegrees"
 
 class Education extends Component {
     constructor() {
         super()
 
         this.state = {
-            editing: false,
-            education: [{
+            adding: false,
+            degrees: [{
                 id: 0,
                 university: 'Tulsa',
                 marks: '100/110'
@@ -18,20 +19,26 @@ class Education extends Component {
             }]
         }
 
-        this.switchEditingState = this.switchEditingState.bind(this)
+        this.switchAddingState = this.switchAddingState.bind(this)
         this.renderEdit = this.renderEdit(this)
     }
 
-    switchEditingState() {
+    switchAddingState() {
         this.setState(prevState => ({
-            editing: !prevState.editing
+            adding: !prevState.adding
         }))
+    }
+
+    updateDegree() {
+        this.setState({
+
+        })
     }
 
     renderEdit() {
         return (
             <div>Testone<br></br>
-                <button onClick={this.switchEditingState}>Back</button>
+                <button onClick={this.switchAddingState}>Back</button>
             </div>
         )
     }
@@ -43,17 +50,14 @@ class Education extends Component {
 
                 <hr className="wide"></hr>
 
-                {this.state.education.map((title) => {
-                    return <div key={title.id}>Studied at {title.university}, graduated with {title.marks}
-                            <br></br>
-                            He did good.</div>
-                })}
+
+                <EducationDegrees degrees={this.state.degrees} />
 
                 {this.renderEdit}
 
-                {this.state.editing === false ?
-                    <button onClick={this.switchEditingState}>Add education</button>
-                    : <button onClick={this.switchEditingState}>Add s</button>}
+                {this.state.adding === false ?
+                    <button onClick={this.switchAddingState}>Add education</button>
+                    : <button onClick={this.switchAddingState}>Add s</button>}
             </section>
         )
     }
