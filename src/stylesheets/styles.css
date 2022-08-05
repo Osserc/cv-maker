@@ -11,12 +11,20 @@
     flex-direction: column;
 }
 
+.justify-around {
+    justify-content: space-around;
+}
+
 .justify-between {
     justify-content: space-between;
 }
 
 .justify-center {
     justify-content: center;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
 }
 
 .align-center {
@@ -33,7 +41,7 @@ body {
     background-color: seagreen;
 }
 
-#biography {
+section {
     width: 50%;
     gap: 15px;
 }
