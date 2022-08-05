@@ -10,11 +10,11 @@ class Education extends Component {
             adding: false,
             degrees: [{
                 id: 0,
-                startDate: '',
-                endDate: '',
-                institution: 'Tulsa',
-                field: '',
-                mark: '100/110'
+                startDate: "2022-06",
+                endDate: "2022-03",
+                institution: "Tunisi Hut",
+                field: "Hut hu hut!-ology",
+                mark: "98"
             }]
         }
 
@@ -58,7 +58,7 @@ class Education extends Component {
 
                 {this.state.adding === false ?
                     <button onClick={this.switchAddingState}>Add education</button>
-                    : <EducationForm addDegree={this.addDegree} />}
+                    : <EducationForm addDegree={this.addDegree} switchAddingState={this.switchAddingState} />}
             </section>
         )
     }

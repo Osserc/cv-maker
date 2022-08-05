@@ -31,7 +31,7 @@ class EducationForm extends Component {
                     </div>
                     <div className="flex justify-evenly align-center wide actions">
                         <button>Confirm</button>
-                        <button>Cancel</button>
+                        <button type="button" onClick={this.props.switchAddingState}>Cancel</button>
                     </div>
                 </form>
             </div>
