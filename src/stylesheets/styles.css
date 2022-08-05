@@ -3,6 +3,18 @@
     width: 100%;
 }
 
+.w-75 {
+    width: 75%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-25 {
+    width: 25%;
+}
+
 .flex {
     display: flex;
 }
@@ -35,6 +47,21 @@
     text-align: right;
 }
 
+.text-center {
+    text-align: center;
+}
+
+.gap-15 {
+    gap: 15px;
+}
+
+.card {
+    background-color: rgb(30, 73, 49);
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 15px;
+}
+
 /* CSS proper */
 
 body {
@@ -43,7 +70,10 @@ body {
 
 section {
     width: 50%;
-    gap: 15px;
+}
+
+.actions {
+    margin-top: 15px;
 }
 
 input {
@@ -53,6 +83,11 @@ input {
     outline: none;
     padding: 8px;
     -webkit-autofill: transparent;
+}
+
+input#institution {
+    box-sizing: border-box;
+    width: 100%;
 }
 
 input:hover {
