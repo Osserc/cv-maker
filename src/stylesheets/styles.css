@@ -1,6 +1,7 @@
 /* reusable classes */
 .wide {
     width: 100%;
+    box-sizing: border-box;
 }
 
 .w-75 {
@@ -13,6 +14,10 @@
 
 .w-25 {
     width: 25%;
+}
+
+.wide, .w-75, .w-50, .w-25 {
+    box-sizing: border-box;
 }
 
 .flex {
@@ -76,6 +81,16 @@ section {
     margin-top: 15px;
 }
 
+button {
+    background-color: rgb(32, 97, 60);
+    border: 2px solid black;
+    transition: 1.5s;
+}
+
+button:hover {
+    background-color: rgb(48, 153, 94);
+}
+
 input {
     background-color: rgb(32, 97, 60);
     border: 2px solid black;
@@ -83,6 +98,10 @@ input {
     outline: none;
     padding: 8px;
     -webkit-autofill: transparent;
+}
+
+::placeholder {
+    color: black;
 }
 
 input#institution {

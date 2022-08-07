@@ -1,6 +1,4 @@
 import { Component } from "react"
-import { EducationDegrees } from "./EducationDegrees"
-import { EducationForm } from "./EducationForm"
 
 class Education extends Component {
     constructor() {
@@ -15,17 +13,19 @@ class Education extends Component {
                 institution: "Tunisi Hut",
                 field: "Hut hu hut!-ology",
                 mark: "98"
+            },
+            {
+                id: 1,
+                startDate: "",
+                endDate: "",
+                institution: "",
+                field: "",
+                mark: ""
             }]
         }
 
-        this.switchAddingState = this.switchAddingState.bind(this)
         this.addDegree = this.addDegree.bind(this)
-    }
-
-    switchAddingState() {
-        this.setState(prevState => ({
-            adding: !prevState.adding
-        }))
+        this.updateDegree = this.updateDegree.bind(this)
     }
 
     addDegree(event) {
@@ -39,12 +39,13 @@ class Education extends Component {
         this.setState({
             degrees: this.state.degrees.concat(newDegree)
         })
-        this.switchAddingState()
     }
 
-    updateDegree() {
-        this.setState({
-
+    updateDegree(event) {
+        this.setState(prevState => {
+            const newDegrees = [...prevState.degrees];
+            newDegrees[event.target.dataset.index][event.target.name] = [event.target.value];
+            return {degrees: newDegrees};
         })
     }
 
@@ -54,11 +55,36 @@ class Education extends Component {
             <section id="Education" className="flex flex-c justify-center align-center gap-15">
                 <h1>Education</h1>
 
-                <EducationDegrees degrees={this.state.degrees} />
+                {this.state.degrees.map((degree) => {
+                    return <div key={degree.id} className="card wide">
+                                <div className="flex justify-between wide">
+                                    <div className="flex flex-c">
+                                        <label htmlFor="startDate"><h3>Start Date {degree.startDate}</h3></label>
+                                        <input type="text" id="startDate" name="startDate" data-index={degree.id} defaultValue={degree.startDate} onChange={this.updateDegree}></input>
+                                    </div>
+                                    <div className="flex flex-c text-right">
+                                        <label htmlFor="occupation"><h3>End Date {degree.endDate}</h3></label>
+                                        <input type="text" id="endDate" name="endDate" data-index={degree.id} defaultValue={degree.endDate} onChange={this.updateDegree}></input>
+                                    </div>
+                                </div>
+                                <div className="flex flex-c">
+                                    <label htmlFor="institution"><h3>Institution {degree.institution}</h3></label>
+                                    <input type="text" id="institution" name="institution" data-index={degree.id} defaultValue={degree.institution} onChange={this.updateDegree}></input>
+                                </div>
+                                <div className="flex flex-c">
+                                    <label htmlFor="field"><h3>Field {degree.field}</h3></label>
+                                    <input type="text" id="field" name="field" data-index={degree.id} defaultValue={degree.field} onChange={this.updateDegree}></input>
+                                </div>
+                                <div className="flex flex-c">
+                                    <label htmlFor="mark"><h3>Final mark {degree.mark}</h3></label>
+                                    <input type="text" id="mark" name="mark" data-index={degree.id} defaultValue={degree.mark} onChange={this.updateDegree}></input>
+                                </div>
+                            </div>
+                })}
 
                 {this.state.adding === false ?
                     <button onClick={this.switchAddingState}>Add education</button>
-                    : <EducationForm addDegree={this.addDegree} switchAddingState={this.switchAddingState} />}
+                    : <button>Temp</button>}
             </section>
         )
     }
