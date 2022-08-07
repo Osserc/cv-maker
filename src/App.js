@@ -2,6 +2,7 @@ import React from 'react';
 import './stylesheets/styles.css';
 import { Biography } from './components/Biography'
 import { Education } from './components/Education'
+import { Experience } from './components/Experience'
 
 class App extends React.Component {
   render() {
@@ -15,6 +16,10 @@ class App extends React.Component {
 
         <div className="flex flex-c justify-center align-center wide">
           <Education />
+        </div>
+
+        <div className="flex flex-c justify-center align-center wide">
+          <Experience />
         </div>
       </div>
     )

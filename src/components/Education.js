@@ -7,19 +7,11 @@ class Education extends Component {
         this.state = {
             degrees: [{
                 id: 0,
-                startDate: "2022-06",
-                endDate: "2022-03",
-                institution: "Tunisi Hut",
-                field: "Hut hu hut!-ology",
-                mark: "98"
-            },
-            {
-                id: 1,
-                startDate: "",
-                endDate: "",
-                institution: "",
-                field: "",
-                mark: ""
+                startDate: '07/2022',
+                endDate: '12/2022',
+                institution: 'Tunisi Hut',
+                field: 'Hut hu hut!-ology',
+                mark: '98'
             }]
         }
 
@@ -30,11 +22,11 @@ class Education extends Component {
 
     addDegree() {
         const newDegree = { id: this.state.degrees.length,
-                            startDate: "",
-                            endDate: "",
-                            institution: "",
-                            field: "",
-                            mark: ""
+                            startDate: 'Start',
+                            endDate: 'End',
+                            institution: 'Institution',
+                            field: 'Type of degree',
+                            mark: 'Final mark'
                         }
         this.setState({
             degrees: this.state.degrees.concat(newDegree)
@@ -57,7 +49,6 @@ class Education extends Component {
         })
     }
 
-
     render() {
         return (
             <section id="Education" className="flex flex-c justify-center align-center gap-15">
@@ -68,30 +59,27 @@ class Education extends Component {
                         return <div key={degree.id} className="card wide">
                                     <div className="flex justify-between wide">
                                         <div className="flex flex-c">
-                                            <label htmlFor="startDate"><h3>Start Date {degree.startDate}</h3></label>
                                             <input type="text" id="startDate" name="startDate" data-index={degree.id} defaultValue={degree.startDate} onChange={this.updateDegree}></input>
                                         </div>
                                         <div className="flex flex-c text-right">
-                                            <label htmlFor="occupation"><h3>End Date {degree.endDate}</h3></label>
                                             <input type="text" id="endDate" name="endDate" data-index={degree.id} defaultValue={degree.endDate} onChange={this.updateDegree}></input>
                                         </div>
                                     </div>
                                     <div className="flex flex-c">
-                                        <label htmlFor="institution"><h3>Institution {degree.institution}</h3></label>
                                         <input type="text" id="institution" name="institution" data-index={degree.id} defaultValue={degree.institution} onChange={this.updateDegree}></input>
                                     </div>
                                     <div className="flex flex-c">
-                                        <label htmlFor="field"><h3>Field {degree.field}</h3></label>
                                         <input type="text" id="field" name="field" data-index={degree.id} defaultValue={degree.field} onChange={this.updateDegree}></input>
                                     </div>
                                     <div className="flex flex-c">
-                                        <label htmlFor="mark"><h3>Final mark {degree.mark}</h3></label>
                                         <input type="text" id="mark" name="mark" data-index={degree.id} defaultValue={degree.mark} onChange={this.updateDegree}></input>
                                     </div>
                                     <div className="actions">
                                         <button data-index={degree.id} onClick={this.removeDegree}>Remove degree</button>
                                     </div>
                                 </div>
+                    } else {
+                        return null
                     }
                 })}
                 <button onClick={this.addDegree}>Add education</button>
