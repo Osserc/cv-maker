@@ -10,16 +10,19 @@ class Contacts extends Component {
             address: 'Address',
             town: 'Town',
             country: 'Country',
-            links: { website: 'mywebsite.com',
+            links: { website: '',
                         linkedin: 'https://github.com/Osserc',
                         github: '',
                         twitter: '',
                         facebook: ''
-                    }
+                    },
+            editing: false,
+            currentEditing: 'website'
         }
 
         this.updateContacts = this.updateContacts.bind(this)
-        this.insertLink = this.insertLink.bind(this)
+        this.toggleEditing = this.toggleEditing.bind(this)
+        this.determineLink = this.determineLink.bind(this)
         this.updateLink = this.updateLink.bind(this)
     }
 
@@ -29,16 +32,26 @@ class Contacts extends Component {
         })
     }
 
-    insertLink(event) {
-        let container = document.querySelector('#social-modal')
-        container.classList.remove('invisible')
-        let element = document.querySelector('#social')
-        element.name = event.target.id
-        console.log(element)
+    toggleEditing() {
+        this.setState(prevState => ({
+            editing: !prevState.editing
+          }));
+    }
+
+    determineLink(event) {
+        console.log(event.target.value)
+        this.setState({
+            currentEditing: event.target.value
+        })
+
     }
 
     updateLink(event) {
-
+        this.setState(prevState => {
+            const newLinks = prevState.links;
+            newLinks[event.target.name] = event.target.value
+            return {links: newLinks}
+        })
     }
 
     render() {
@@ -53,18 +66,26 @@ class Contacts extends Component {
                 <a href={`${this.state.links.website}`} target="_blank" rel="noreferrer">Personal website</a>
                 <div className="flex justify-center align-center gap-15">
                     <a href={`${this.state.links.linkedin}`} target="_blank" rel="noreferrer"><i className="devicon-linkedin-plain colored" id="linkedin"></i></a>
-                    <a href={`${this.state.links.github}`}><i className="devicon-github-original colored" id="github"></i></a>
-                    <a href={`${this.state.links.twitter}`}><i className="devicon-twitter-original colored" id="twitter"></i></a>
-                    <a href={`${this.state.links.facebook}`}><i className="devicon-facebook-plain colored" id="facebook"></i></a>
-                    <i className="devicon-facebook-plain colored" id="facebook" onClick={this.insertSocial}></i>
+                    <a href={`${this.state.links.github}`} target="_blank" rel="noreferrer"><i className="devicon-github-original colored" id="github"></i></a>
+                    <a href={`${this.state.links.twitter}`} target="_blank" rel="noreferrer"><i className="devicon-twitter-original colored" id="twitter"></i></a>
+                    <a href={`${this.state.links.facebook}`} target="_blank" rel="noreferrer"><i className="devicon-facebook-plain colored" id="facebook"></i></a>
                 </div>
-                <div id="social-modal" className="f">
-                    <form className="flex flex-c justify-content align-center gap-15">
-                        <select></select>
-                        <input type="text" id="social" name="placeholder" onSubmit={this.updateSocial}></input>
-                        <button>Add social</button>
-                    </form>
-                </div>
+                {this.state.editing === false ?
+                    <button onClick={this.toggleEditing}>Edit links</button> :
+                    <div id="social-modal" className="flex flex-c justify-content align-center gap-15">
+                        <select onChange={this.determineLink}>
+                            <option value="website">Website</option>
+                            <optgroup label="socials">
+                                <option value="linkedin">Linkedin</option>
+                                <option value="github">GitHub</option>
+                                <option value="twitter">Twitter</option>
+                                <option value="facebook">Facebook</option>
+                            </optgroup>
+                        </select>
+                        <input type="text" id="link" name={this.state.currentEditing} defaultValue={this.state.links[this.state.currentEditing]} onChange={this.updateLink}></input>
+                        <button onClick={this.toggleEditing}>Stop</button>
+                    </div>
+                }
             </section>
         )
     }
