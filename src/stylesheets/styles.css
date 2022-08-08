@@ -120,12 +120,15 @@ a {
     text-decoration: none;
 }
 
-#social-modal {
-
+img {
+    width: 200px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid rgb(32, 97, 60);
 }
 
-#social-modal.invisible {
-    display: none;
+[src=''] {
+    visibility: hidden;
 }
 
 input[type="file"] {

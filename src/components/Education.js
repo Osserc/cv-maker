@@ -56,7 +56,7 @@ class Education extends Component {
 
                 {this.state.degrees.map((degree) => {
                     if (degree != null) {
-                        return <div key={degree.id} className="card wide">
+                        return <div key={degree.id} className="card flex flex-c gap-15 wide">
                                     <div className="flex justify-between wide">
                                         <div className="flex flex-c">
                                             <input type="text" id="startDate" name="startDate" data-index={degree.id} defaultValue={degree.startDate} onChange={this.updateDegree}></input>

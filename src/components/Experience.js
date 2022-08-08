@@ -54,7 +54,7 @@ class Experience extends Component {
 
                 {this.state.experiences.map((experience) => {
                     if (experience != null) {
-                        return <div key={experience.id} className="card wide">
+                        return <div key={experience.id} className="card flex flex-c gap-15 wide">
                                     <div className="flex justify-between wide">
                                         <div className="flex flex-c">
                                             <input type="text" id="startDate" name="startDate" data-index={experience.id} defaultValue={experience.startDate} onChange={this.updateExperience}></input>
