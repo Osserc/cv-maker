@@ -39,11 +39,10 @@ class Contacts extends Component {
     }
 
     determineLink(event) {
-        console.log(event.target.value)
         this.setState({
             currentEditing: event.target.value
         })
-
+        document.querySelector('#links-form').reset()
     }
 
     updateLink(event) {
@@ -72,7 +71,8 @@ class Contacts extends Component {
                 </div>
                 {this.state.editing === false ?
                     <button onClick={this.toggleEditing}>Edit links</button> :
-                    <div id="social-modal" className="flex flex-c justify-content align-center gap-15">
+
+                    <div className="flex flex-c justify-content align-center gap-15">
                         <select onChange={this.determineLink}>
                             <option value="website">Website</option>
                             <optgroup label="socials">
@@ -82,8 +82,10 @@ class Contacts extends Component {
                                 <option value="facebook">Facebook</option>
                             </optgroup>
                         </select>
-                        <input type="text" id="link" name={this.state.currentEditing} defaultValue={this.state.links[this.state.currentEditing]} onChange={this.updateLink}></input>
-                        <button onClick={this.toggleEditing}>Stop</button>
+                        <form id="links-form" className="flex flex-c justify-content align-center gap-15">
+                            <input type="text" id="link" name={this.state.currentEditing} defaultValue={this.state.links[this.state.currentEditing]} onChange={this.updateLink}></input>
+                            <button onClick={this.toggleEditing}>Stop editing</button>
+                        </form>
                     </div>
                 }
             </section>
