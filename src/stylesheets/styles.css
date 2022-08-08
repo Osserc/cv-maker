@@ -70,11 +70,19 @@
 /* CSS proper */
 
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: seagreen;
 }
 
-section {
-    width: 50%;
+#root {
+    width: 75%;
+}
+
+.grid-app {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
 }
 
 .actions {
@@ -102,6 +110,26 @@ input {
 
 ::placeholder {
     color: black;
+}
+
+i {
+    font-size: 24px;
+}
+
+a {
+    text-decoration: none;
+}
+
+#social-modal {
+
+}
+
+#social-modal.invisible {
+    display: none;
+}
+
+input[type="file"] {
+    display: none;
 }
 
 input#institution {

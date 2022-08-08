@@ -1,24 +1,23 @@
-import React from 'react';
-import './stylesheets/styles.css';
-import { Biography } from './components/Biography'
+import React from 'react'
+import './stylesheets/styles.css'
+import { Photo } from './components/Photo'
+import { Identity  } from './components/Identity'
+import { Contacts } from './components/Contacts'
 import { Education } from './components/Education'
 import { Experience } from './components/Experience'
 
 class App extends React.Component {
   render() {
     return (
-      <div className="flex flex-c align-center gap-15">
-        <div className="flex flex-c justify-center align-center wide">
-          <Biography />
+      <div className="grid-app">
+        <div className="grid-left">
+          <Photo />
+          <Contacts />
         </div>
 
-        <hr className="w-50"></hr>
-
-        <div className="flex flex-c justify-center align-center wide">
+        <div className="grid-right">
+          <Identity />
           <Education />
-        </div>
-
-        <div className="flex flex-c justify-center align-center wide">
           <Experience />
         </div>
       </div>
