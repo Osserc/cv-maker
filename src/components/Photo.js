@@ -11,11 +11,6 @@ class Photo extends Component {
 
         this.fireForm = this.fireForm.bind(this)
         this.setPortrait = this.setPortrait.bind(this)
-        this.logStatus = this.logStatus.bind(this)
-    }
-
-    logStatus() {
-        console.log(this.state.profilePicture)
     }
 
     fireForm(event) {
@@ -24,10 +19,21 @@ class Photo extends Component {
 
     setPortrait(event) {
         event.preventDefault()
-        console.log(event.target.files[0])
-        this.setState({
-            profilePicture: URL.createObjectURL(event.target.files[0])
-        })
+        let image = event.target.files[0]
+        if (!this.checkFileExtension(image.name)) {
+            alert('Invalid extensions')
+        } else {
+            this.setState({
+                profilePicture: URL.createObjectURL(image)
+            })
+        }
+    }
+
+    checkFileExtension(filename) {
+        let allowedExtensions = ['png', 'jpg', 'jpeg']
+        let extension = filename.split('.').pop()
+        if (allowedExtensions.includes(extension)) return true
+        return false
     }
 
     render () {
@@ -35,7 +41,7 @@ class Photo extends Component {
             <section id="photo">
                 <form id="photo-form" className="flex flex-c justify-center align-center" onSubmit={this.setPortrait}>
                     <label htmlFor="portrait"><img src={this.state.profilePicture} alt=""></img></label>
-                    <input type="file" id="portrait" name="portrait" onChange={this.setPortrait}></input>
+                    <input type="file" id="portrait" name="portrait" accept="image/*" onChange={this.setPortrait}></input>
                 </form>
             </section>
         )

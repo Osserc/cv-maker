@@ -77,7 +77,7 @@ class Experience extends Component {
                         return null
                     }
                 })}
-                <button onClick={this.addExperience}>Add experience</button>
+                <button className="no-print" onClick={this.addExperience}>Add experience</button>
             </section>
         )
     }

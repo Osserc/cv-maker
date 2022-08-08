@@ -82,7 +82,7 @@ class Education extends Component {
                         return null
                     }
                 })}
-                <button onClick={this.addDegree}>Add education</button>
+                <button className="no-print" onClick={this.addDegree}>Add education</button>
             </section>
         )
     }

@@ -70,9 +70,9 @@ class Contacts extends Component {
                     <a href={`${this.state.links.facebook}`} target="_blank" rel="noreferrer"><i className="devicon-facebook-plain colored" id="facebook"></i></a>
                 </div>
                 {this.state.editing === false ?
-                    <button onClick={this.toggleEditing}>Edit links</button>
+                    <button className="no-print" onClick={this.toggleEditing}>Edit links</button>
                     :
-                    <div className="flex flex-c justify-content align-center gap-15">
+                    <div className="flex flex-c justify-content align-center gap-15 no-print">
                         <select onChange={this.determineLink}>
                             <option value="website">Website</option>
                             <optgroup label="socials">

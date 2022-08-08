@@ -55,7 +55,7 @@ class Skills extends Component {
                         return null
                     }
                 })}
-                <button onClick={this.addSkill}>Add skill</button>
+                <button className="no-print" onClick={this.addSkill}>Add skill</button>
             </section>
         )
     }

@@ -67,6 +67,12 @@
     padding: 15px;
 }
 
+@media print {
+    .actions, .no-print {
+        display: none;
+    }
+}
+
 /* CSS proper */
 
 body {
