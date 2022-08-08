@@ -11,7 +11,7 @@ class Photo extends Component {
 
     render () {
         return (
-            <section className="flex justify-center align-center">
+            <section id="photo" className="flex justify-center align-center">
                 <label htmlFor="photo">Photo thingy</label>
                 <input type="file" id="photo" name="photo"></input>
             </section>

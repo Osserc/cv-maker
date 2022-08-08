@@ -51,7 +51,7 @@ class Education extends Component {
 
     render() {
         return (
-            <section id="Education" className="flex flex-c justify-center align-center gap-15">
+            <section id="education" className="flex flex-c justify-center align-center gap-15">
                 <h1>Education</h1>
 
                 {this.state.degrees.map((degree) => {

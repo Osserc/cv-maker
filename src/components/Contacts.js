@@ -59,8 +59,8 @@ class Contacts extends Component {
                 <h1>Contacts</h1>
                 <input type="email" id="email" name="email" defaultValue={this.state.email} onChange={this.updateContacts}></input>
                 <input type="tel" id="phone" name="phone" defaultValue={this.state.phone} onChange={this.updateContacts}></input>
-                <input type="text" id="town" name="town" defaultValue={this.state.town} onChange={this.updateContacts}></input>
                 <input type="text" id="address" name="address" defaultValue={this.state.address} onChange={this.updateContacts}></input>
+                <input type="text" id="town" name="town" defaultValue={this.state.town} onChange={this.updateContacts}></input>
                 <input type="text" id="country" name="country" defaultValue={this.state.country} onChange={this.updateContacts}></input>
                 <a href={`${this.state.links.website}`} target="_blank" rel="noreferrer">Personal website</a>
                 <div className="flex justify-center align-center gap-15">
@@ -70,8 +70,8 @@ class Contacts extends Component {
                     <a href={`${this.state.links.facebook}`} target="_blank" rel="noreferrer"><i className="devicon-facebook-plain colored" id="facebook"></i></a>
                 </div>
                 {this.state.editing === false ?
-                    <button onClick={this.toggleEditing}>Edit links</button> :
-
+                    <button onClick={this.toggleEditing}>Edit links</button>
+                    :
                     <div className="flex flex-c justify-content align-center gap-15">
                         <select onChange={this.determineLink}>
                             <option value="website">Website</option>
@@ -84,7 +84,7 @@ class Contacts extends Component {
                         </select>
                         <form id="links-form" className="flex flex-c justify-content align-center gap-15">
                             <input type="text" id="link" name={this.state.currentEditing} defaultValue={this.state.links[this.state.currentEditing]} onChange={this.updateLink}></input>
-                            <button onClick={this.toggleEditing}>Stop editing</button>
+                            <button type="button" onClick={this.toggleEditing}>Stop editing</button>
                         </form>
                     </div>
                 }

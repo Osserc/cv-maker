@@ -4,6 +4,7 @@ import { Photo } from './components/Photo'
 import { Identity  } from './components/Identity'
 import { Contacts } from './components/Contacts'
 import { Education } from './components/Education'
+import { Skills } from './components/Skills'
 import { Experience } from './components/Experience'
 
 class App extends React.Component {
@@ -13,6 +14,7 @@ class App extends React.Component {
         <div className="grid-left">
           <Photo />
           <Contacts />
+          <Skills />
         </div>
 
         <div className="grid-right">

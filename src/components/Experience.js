@@ -49,7 +49,7 @@ class Experience extends Component {
 
     render() {
         return (
-            <section id="Experience" className="flex flex-c justify-center align-center gap-15">
+            <section id="experience" className="flex flex-c justify-center align-center gap-15">
                 <h1>Experience</h1>
 
                 {this.state.experiences.map((experience) => {
