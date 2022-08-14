@@ -3,6 +3,7 @@ import './stylesheets/styles.css'
 import { Photo } from './components/Photo'
 import { Identity  } from './components/Identity'
 import { Contacts } from './components/Contacts'
+import { Socials } from './components/Socials'
 import { Education } from './components/Education'
 import { Skills } from './components/Skills'
 import { Experience } from './components/Experience'
@@ -12,15 +13,16 @@ import ReactToPrint from 'react-to-print';
 class App extends React.Component {
   render() {
     return (
-      <div className="grid-app" ref={el => (this.componentRef = el)}>
-        <div className="grid-left">
+      <div className="p-15" ref={element => (this.componentRef = element)}>
+        <div className="top flex wide align-center justify-between">
           <Photo />
+          <Identity />
           <Contacts />
-          <Skills />
+          <Socials />
         </div>
 
-        <div className="grid-right">
-          <Identity />
+        <div className="">
+          <Skills />
           <Education />
           <Experience />
         </div>

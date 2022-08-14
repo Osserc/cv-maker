@@ -67,7 +67,7 @@ class Experience extends Component {
                                         <input type="text" id="company" name="company" data-index={experience.id} defaultValue={experience.company} onChange={this.updateExperience}></input>
                                     </div>
                                     <div className="flex flex-c">
-                                        <input type="text" id="job" name="job" data-index={experience.id} defaultValue={experience.job} onChange={this.updateExperience}></input>
+                                        <textarea id="job" name="job" data-index={experience.id} defaultValue={experience.job} onChange={this.updateExperience}></textarea>
                                     </div>
                                     <div className="actions">
                                         <button data-index={experience.id} onClick={this.removeExperience}>Remove experience</button>

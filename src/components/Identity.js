@@ -21,7 +21,7 @@ class Identity extends Component {
 
     render() {
         return (
-            <section id="identity" className="flex flex-c justify-evenly wide gap-15">
+            <section id="identity" className="flex flex-c justify-evenly gap-15">
                 <input type="text" id="firstName" name="firstName" defaultValue={this.state.firstName} onChange={this.updateIdentity}></input>
                 <input type="text" id="lastName" name="lastName" defaultValue={this.state.lastName} onChange={this.updateIdentity}></input>
                 <input type="text" id="occupation" name="occupation" defaultValue={this.state.occupation} onChange={this.updateIdentity}></input>

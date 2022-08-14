@@ -1,0 +1,78 @@
+import { Component } from "react";
+
+class Socials extends Component {
+    constructor() {
+        super()
+
+        this.state = {
+            links: { website: '',
+                        linkedin: 'https://github.com/Osserc',
+                        github: '',
+                        twitter: '',
+                        facebook: ''
+                    },
+            editing: false,
+            currentEditing: 'website'
+        }
+
+        this.toggleEditing = this.toggleEditing.bind(this)
+        this.determineLink = this.determineLink.bind(this)
+        this.updateLink = this.updateLink.bind(this)
+    }
+
+    toggleEditing() {
+        this.setState(prevState => ({
+            editing: !prevState.editing
+          }));
+    }
+
+    determineLink(event) {
+        this.setState({
+            currentEditing: event.target.value
+        })
+        document.querySelector('#links-form').reset()
+    }
+
+    updateLink(event) {
+        this.setState(prevState => {
+            const newLinks = prevState.links;
+            newLinks[event.target.name] = event.target.value
+            return {links: newLinks}
+        })
+    }
+
+    render() {
+        return (
+            <section id="socials" className="flex justify-center align-center">
+                <a href={`${this.state.links.website}`} target="_blank" rel="noreferrer">Personal website</a>
+                <div className="flex justify-center align-center gap-15">
+                    <a href={`${this.state.links.linkedin}`} target="_blank" rel="noreferrer"><i className="devicon-linkedin-plain colored" id="linkedin"></i></a>
+                    <a href={`${this.state.links.github}`} target="_blank" rel="noreferrer"><i className="devicon-github-original colored" id="github"></i></a>
+                    <a href={`${this.state.links.twitter}`} target="_blank" rel="noreferrer"><i className="devicon-twitter-original colored" id="twitter"></i></a>
+                    <a href={`${this.state.links.facebook}`} target="_blank" rel="noreferrer"><i className="devicon-facebook-plain colored" id="facebook"></i></a>
+                </div>
+                {this.state.editing === false ?
+                    <button className="no-print" onClick={this.toggleEditing}>Edit links</button>
+                    :
+                    <div className="flex flex-c justify-content align-center gap-15 no-print">
+                        <select onChange={this.determineLink}>
+                            <option value="website">Website</option>
+                            <optgroup label="socials">
+                                <option value="linkedin">Linkedin</option>
+                                <option value="github">GitHub</option>
+                                <option value="twitter">Twitter</option>
+                                <option value="facebook">Facebook</option>
+                            </optgroup>
+                        </select>
+                        <form id="links-form" className="flex flex-c justify-content align-center gap-15">
+                            <input type="text" id="link" name={this.state.currentEditing} defaultValue={this.state.links[this.state.currentEditing]} onChange={this.updateLink}></input>
+                            <button type="button" onClick={this.toggleEditing}>Stop editing</button>
+                        </form>
+                    </div>
+                }
+            </section>
+        )
+    }
+}
+
+export { Socials }

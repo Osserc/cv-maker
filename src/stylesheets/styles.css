@@ -105,6 +105,10 @@ table {
     gap: 15px;
 }
 
+.p-15 {
+    padding: 15px;
+}
+
 .card {
     background-color: rgb(30, 73, 49);
     border: 2px solid black;
@@ -129,12 +133,8 @@ body {
     width: 75%;
 }
 
-.grid-app {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    row-gap: 30px;
-    padding: 15px;
-    background-color: seagreen;
+.top {
+
 }
 
 .print-button {
@@ -159,13 +159,14 @@ button:hover {
     background-color: rgb(48, 153, 94);
 }
 
-input {
+input, textarea {
     background-color: rgb(32, 97, 60);
     border: 2px solid black;
     border-radius: 25px;
     outline: none;
     padding: 8px;
     -webkit-autofill: transparent;
+    transition: 1.5s;
 }
 
 ::placeholder {
@@ -200,7 +201,7 @@ input#institution {
     width: 100%;
 }
 
-input:hover {
+input:hover, textarea:hover {
     background-color: rgb(64, 190, 119);
     cursor: pointer;
 }
@@ -218,6 +219,11 @@ input:autofill {
     -webkit-box-shadow: 0 0 0px 1000px rgb(50, 117, 79) inset;
 }
 
+input:hover, textarea:hover {
+    background-color: rgb(64, 190, 119);
+    cursor: pointer;
+}
+
 h3 {
     margin: 5px 0;
 }
@@ -229,6 +235,11 @@ h3 {
 
     .grid-app {
         width: 100%;
+    }
+
+    .card {
+        break-inside: avoid;
+        break-after: auto;
     }
 
     .actions, .no-print {
