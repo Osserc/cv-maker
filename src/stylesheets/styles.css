@@ -20,10 +20,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
+
 body {
 	line-height: 1;
 }
@@ -93,6 +90,10 @@ table {
     align-items: center;
 }
 
+.align-end {
+    align-items: flex-end;
+}
+
 .text-right {
     text-align: right;
 }
@@ -101,12 +102,24 @@ table {
     text-align: center;
 }
 
+.gap-5 {
+    gap: 5px;
+}
+
 .gap-15 {
     gap: 15px;
 }
 
 .p-15 {
     padding: 15px;
+}
+
+.i-block {
+    display: inline-block;
+}
+
+.bold {
+    font-weight: bold;
 }
 
 .card {
@@ -133,20 +146,12 @@ body {
     width: 75%;
 }
 
-.top {
-
-}
-
-.print-button {
-    grid-column: span 2;
-}
-
 .print-button button {
     font-size: 30px;
 }
 
-.actions {
-    margin-top: 15px;
+.print-container {
+    font-size: 30px;
 }
 
 button {
@@ -160,13 +165,19 @@ button:hover {
 }
 
 input, textarea {
-    background-color: rgb(32, 97, 60);
-    border: 2px solid black;
-    border-radius: 25px;
+    background-color: rgb(30, 73, 49);
+    border: none;
     outline: none;
-    padding: 8px;
+    border-radius: 25px;
+    padding: 4px;
+    font-size: 30px;
     -webkit-autofill: transparent;
     transition: 1.5s;
+}
+
+textarea {
+    width: 100%;
+    overflow: none;
 }
 
 ::placeholder {
@@ -211,7 +222,7 @@ input:invalid {
 }
 
 input:valid {
-    background-color: rgb(32, 97, 60);
+    background-color: rgb(30, 73, 49);
 }
 
 input:autofill {

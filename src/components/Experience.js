@@ -49,27 +49,32 @@ class Experience extends Component {
 
     render() {
         return (
-            <section id="experience" className="flex flex-c justify-center align-center gap-15">
+            <section id="experience">
                 <h1>Experience</h1>
 
                 {this.state.experiences.map((experience) => {
                     if (experience != null) {
-                        return <div key={experience.id} className="card flex flex-c gap-15 wide">
+                        return <div key={experience.id} className="card flex flex-c gap-5 wide">
                                     <div className="flex justify-between wide">
-                                        <div className="flex flex-c">
-                                            <input type="text" id="startDate" name="startDate" data-index={experience.id} defaultValue={experience.startDate} onChange={this.updateExperience}></input>
+                                        <div className="i-block">
+                                            <input type="text" id="company" name="company" data-index={experience.id} defaultValue={experience.company} onChange={this.updateExperience} style={{width: `${experience.company.length}ch`}}></input>
                                         </div>
-                                        <div className="flex flex-c text-right">
-                                            <input type="text" id="endDate" name="endDate" data-index={experience.id} defaultValue={experience.endDate} onChange={this.updateExperience}></input>
+                                        <div className="i-block">
+                                            <div className="i-block">
+                                                <input type="text" className="text-right" id="startDate" name="startDate" data-index={experience.id} defaultValue={experience.startDate} onChange={this.updateExperience} style={{width: `${experience.startDate.length}ch`}}></input>
+                                            </div>
+                                            <div className="i-block">
+                                                 - 
+                                            </div>
+                                            <div className="i-block">
+                                                <input type="text" id="endDate" name="endDate" data-index={experience.id} defaultValue={experience.endDate} onChange={this.updateExperience} style={{width: `${experience.endDate.length}ch`}}></input>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="flex flex-c">
-                                        <input type="text" id="company" name="company" data-index={experience.id} defaultValue={experience.company} onChange={this.updateExperience}></input>
+                                    <div className="flex">
+                                        <textarea id="job" name="job" rows={3} data-index={experience.id} defaultValue={experience.job} onChange={this.updateExperience}></textarea>
                                     </div>
-                                    <div className="flex flex-c">
-                                        <textarea id="job" name="job" data-index={experience.id} defaultValue={experience.job} onChange={this.updateExperience}></textarea>
-                                    </div>
-                                    <div className="actions">
+                                    <div className="wide text-right">
                                         <button data-index={experience.id} onClick={this.removeExperience}>Remove experience</button>
                                     </div>
                                 </div>

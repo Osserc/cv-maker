@@ -44,37 +44,43 @@ class Education extends Component {
     updateDegree(event) {
         this.setState(prevState => {
             const newDegrees = [...prevState.degrees];
-            newDegrees[event.target.dataset.index][event.target.name] = [event.target.value];
+            newDegrees[event.target.dataset.index][event.target.name] = event.target.value;
             return {degrees: newDegrees};
         })
+        console.log(this.state.degrees)
     }
 
     render() {
         return (
-            <section id="education" className="flex flex-c justify-center align-center gap-15">
+            <section id="education">
                 <h1>Education</h1>
 
                 {this.state.degrees.map((degree) => {
                     if (degree != null) {
-                        return <div key={degree.id} className="card flex flex-c gap-15 wide">
+                        return <div key={degree.id} className="card flex flex-c gap-5 wide">
                                     <div className="flex justify-between wide">
-                                        <div className="flex flex-c">
-                                            <input type="text" id="startDate" name="startDate" data-index={degree.id} defaultValue={degree.startDate} onChange={this.updateDegree}></input>
+                                        <div className="flex flex-c i-block">
+                                            <input type="text" id="institution" name="institution" data-index={degree.id} defaultValue={degree.institution} onChange={this.updateDegree} style={{width: `${degree.institution.length}ch`}}></input>
                                         </div>
-                                        <div className="flex flex-c text-right">
-                                            <input type="text" id="endDate" name="endDate" data-index={degree.id} defaultValue={degree.endDate} onChange={this.updateDegree}></input>
+                                        <div>
+                                            <div className="flex flex-c i-block">
+                                                <input type="text" className="text-right" id="startDate" name="startDate" data-index={degree.id} defaultValue={degree.startDate} onChange={this.updateDegree} style={{width: `${degree.startDate.length}ch`}}></input>
+                                            </div>
+                                            <div className="i-block">
+                                                 -
+                                            </div>
+                                            <div className="flex flex-c i-block">
+                                                <input type="text" id="endDate" name="endDate" data-index={degree.id} defaultValue={degree.endDate} onChange={this.updateDegree} style={{width: `${degree.endDate.length}ch`}}></input>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="flex flex-c">
-                                        <input type="text" id="institution" name="institution" data-index={degree.id} defaultValue={degree.institution} onChange={this.updateDegree}></input>
+                                    <div className="flex flex-c i-block">
+                                        <input type="text" id="field" name="field" data-index={degree.id} defaultValue={degree.field} onChange={this.updateDegree} style={{width: `${degree.field.length}ch`}}></input>
                                     </div>
-                                    <div className="flex flex-c">
-                                        <input type="text" id="field" name="field" data-index={degree.id} defaultValue={degree.field} onChange={this.updateDegree}></input>
+                                    <div className="flex flex-c i-block">
+                                        <input type="text" id="mark" name="mark" data-index={degree.id} defaultValue={degree.mark} onChange={this.updateDegree} style={{width: `${degree.mark.length}ch`}}></input>
                                     </div>
-                                    <div className="flex flex-c">
-                                        <input type="text" id="mark" name="mark" data-index={degree.id} defaultValue={degree.mark} onChange={this.updateDegree}></input>
-                                    </div>
-                                    <div className="actions">
+                                    <div className="wide text-right">
                                         <button data-index={degree.id} onClick={this.removeDegree}>Remove degree</button>
                                     </div>
                                 </div>

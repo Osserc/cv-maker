@@ -13,13 +13,14 @@ import ReactToPrint from 'react-to-print';
 class App extends React.Component {
   render() {
     return (
-      <div className="p-15" ref={element => (this.componentRef = element)}>
+      <div className="p-15 print-container" ref={element => (this.componentRef = element)}>
         <div className="top flex wide align-center justify-between">
           <Photo />
           <Identity />
           <Contacts />
-          <Socials />
         </div>
+
+        <Socials />
 
         <div className="">
           <Skills />
